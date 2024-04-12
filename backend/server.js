@@ -7,7 +7,10 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const userRouter=require('./routes/userRoutes');
+const reminderRouter=require('./routes/remiderRoutes');
+
 const requireAuth=require('./middlewares/requireAuth');
+
 const test=require('./controllers/test');
 
 app.use(cors());
@@ -17,6 +20,7 @@ app.use(userRouter);
 // use requireAuth here to protect routes of remaining application 
 app.use(requireAuth);
 app.use(test); //without valid token /test route will not be accessible
+app.use(reminderRouter);
 
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
