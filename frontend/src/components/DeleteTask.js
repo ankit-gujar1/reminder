@@ -5,6 +5,9 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import { useNavigate, useParams } from "react-router-dom";
 
 export const DeleteTask = () => {
+
+    const url="https://reminder-3jth.onrender.com/";
+
     const [title, setTitle] = useState();
     const [description, setDescription] = useState();
     const [importance, setImportance] = useState();
@@ -21,7 +24,7 @@ export const DeleteTask = () => {
             return;
         }
 
-        axios.get('http://localhost:8080/' + id, { headers: { Authorization: 'Bearer ' + user.token } })
+        axios.get(url + id, { headers: { Authorization: 'Bearer ' + user.token } })
             .then((r) => {
                 setTitle(r.data.title);
                 setDescription(r.data.description);
@@ -40,7 +43,7 @@ export const DeleteTask = () => {
             return;
         }
 
-        axios.delete('http://localhost:8080/' + id, { headers: { Authorization: 'Bearer ' + user.token } })
+        axios.delete(url + id, { headers: { Authorization: 'Bearer ' + user.token } })
             .then((r) => {
                 console.log(r.data);
                 navigate('/');

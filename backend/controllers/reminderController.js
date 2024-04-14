@@ -4,7 +4,7 @@ const Task=require('../models/reminderModel');
 const getAllTasks=async(req,res)=>{
     const user_id=req.user._id;
     try{
-        const r=await Task.find({user_id});
+        const r=await Task.find({user_id}).sort({createdAt: -1});
         res.status(200).json(r);
     }
     catch(e){

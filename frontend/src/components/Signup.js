@@ -6,6 +6,8 @@ import { Navbar } from "./Navbar";
 
 const Signup=()=>{
 
+    const url="https://reminder-3jth.onrender.com/";
+
     const [userName,setUserName]=useState();
     const [password,setPassword]=useState();
 
@@ -25,7 +27,7 @@ const Signup=()=>{
     function signupUser(e){
         e.preventDefault();
 
-        axios.post('http://localhost:8080/signup',{userName,password})
+        axios.post(url+'signup',{userName,password})
         .then((r)=>{
             localStorage.setItem('user',JSON.stringify(r.data));
             dispatch({type:'LOGIN',payload:r.data});

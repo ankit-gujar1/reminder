@@ -5,6 +5,9 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import { useNavigate } from "react-router-dom";
 
 export const AddTask = () => {
+
+    const url="https://reminder-3jth.onrender.com/";
+
     const [title, setTitle] = useState();
     const [description, setDescription] = useState();
     const [importance, setImportance] = useState(2);
@@ -28,7 +31,7 @@ export const AddTask = () => {
             return;
         }
 
-        axios.post('http://localhost:8080/', {title,description,importance}, {headers:{Authorization:'Bearer ' + user.token}})
+        axios.post(url, {title,description,importance}, {headers:{Authorization:'Bearer ' + user.token}})
         .then((r)=>{
             console.log(r.data);
             navigate('/');

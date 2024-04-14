@@ -6,6 +6,8 @@ import axios from "axios";
 
 function App() {
 
+  const url="https://reminder-3jth.onrender.com/";
+
   const navigate = useNavigate();
 
   const [task, setTask] = useState();
@@ -22,7 +24,7 @@ function App() {
       navigate('/login');
       return;
     }
-    axios.get('http://localhost:8080/', { headers: { Authorization: 'Bearer ' + user.token } })
+    axios.get(url, { headers: { Authorization: 'Bearer ' + user.token } })
       .then((r) => {
         setTask(r.data);
       })
