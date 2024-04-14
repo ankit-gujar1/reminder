@@ -5,13 +5,23 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import { AuthContextProvider } from './context/AuthContext';
 import Signup from '../src/components/Signup'
 import Login from './components/Login';
+import { AddTask } from './components/AddTask';
+import About from './components/About';
+import Contact from './components/Contact';
+import { EditTask } from './components/EditTask';
+import { DeleteTask } from './components/DeleteTask';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const router=createBrowserRouter([
   {path:'/signup',element:<Signup/>},
   {path:'/',element:<App/>},
-  {path:'/login',element:<Login/>}
+  {path:'/login',element:<Login/>},
+  {path:'/add',element:<AddTask/>},
+  {path:'/about',element:<About/>},
+  {path:'/contact',element:<Contact/>},
+  {path:'/edit/:id',element:<EditTask/>},
+  {path:'/delete/:id',element:<DeleteTask/>}
 ])
 root.render(
   <React.StrictMode>

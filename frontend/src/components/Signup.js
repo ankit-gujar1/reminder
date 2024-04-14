@@ -18,6 +18,7 @@ const Signup=()=>{
     useEffect(()=>{
         if(user){
             navigate('/');
+            return;
         }
     },[user])
 
