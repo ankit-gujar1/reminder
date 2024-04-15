@@ -59,17 +59,17 @@ export const AddTask = () => {
                         </div>
 
                         <div className="mb-3">
-                            <label className="form-label">Set Importance</label>
+                            <label className="form-label">Priority</label>
                             <input type="range" className="form-range" onChange={(e) => setImportance(e.target.value)} min="1" max="3" defaultValue="2" step="1" />
                             <div className="row">
                                 <div className="col-4">
-                                    <p className="text-success">not that important</p>
+                                    <p className="text-success">Low</p>
                                 </div>
                                 <div className="col-4 text-center">
-                                    <p className="text-primary">important</p>
+                                    <p className="text-primary">Medium</p>
                                 </div>
                                 <div className="col-4 text-end">
-                                    <p className="text-danger">very important</p>
+                                    <p className="text-danger">High</p>
                                 </div>
                             </div>
                         </div>
