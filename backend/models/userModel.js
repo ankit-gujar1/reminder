@@ -22,14 +22,16 @@ userSchema.statics.signup=async function(userName,password){
     if(!userName || !password) throw Error("Enter username and password");
     if(!validator.isStrongPassword(password)) throw Error("Password must contain that shit");
 
-    const u=await this.findOne({userName});
+    const uName=userName.toLowerCase();
+
+    const u=await this.findOne({uName});
 
     // if(u) throw Error("Username already exist");
 
     // const salt=await bcrypt.genSalt(10);
     // const hash=await bcrypt.hash(password,salt);
 
-    // const user= await this.create({userName,password:hash});
+    // const user= await this.create({userName:uName,password:hash});
 
     // return user;
 
@@ -37,7 +39,7 @@ userSchema.statics.signup=async function(userName,password){
         const salt=await bcrypt.genSalt(10);
         const hash=await bcrypt.hash(password,salt);
 
-        const user= await this.create({userName,password:hash});
+        const user= await this.create({userName:uName,password:hash});
 
         return user;
     }
@@ -47,7 +49,9 @@ userSchema.statics.signup=async function(userName,password){
 userSchema.statics.login=async function(userName,password){
     if(!userName || !password) throw Error("Enter username and password");
 
-    const u=await this.findOne({userName});
+    const uName=userName.toLowerCase();
+
+    const u=await this.findOne({uName});
 
     // if(!u) throw Error("User not exist or inccorect username");
 
