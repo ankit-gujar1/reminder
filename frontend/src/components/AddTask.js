@@ -3,6 +3,7 @@ import { Navbar } from "./Navbar";
 import axios from 'axios';
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useNavigate } from "react-router-dom";
+import Footer from "./Footer";
 
 export const AddTask = () => {
 
@@ -90,6 +91,7 @@ export const AddTask = () => {
                     </form>
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Navbar } from './Navbar'
+import Footer from './Footer'
 
 export default function Contact() {
     return (
@@ -13,6 +14,7 @@ export default function Contact() {
                   fuga sed? Commodi laboriosam nulla hic amet sint.</p>
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }

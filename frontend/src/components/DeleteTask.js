@@ -3,6 +3,7 @@ import { Navbar } from "./Navbar";
 import axios from 'axios';
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useNavigate, useParams } from "react-router-dom";
+import Footer from "./Footer";
 
 export const DeleteTask = () => {
 
@@ -75,6 +76,7 @@ export const DeleteTask = () => {
                                         <button type="submit" onClick={deleteTask} className="btn btn-danger py-2 px-5">Delete</button>
                                     </div>
                     {/* </form> */}
+                    <Footer/>
                 </div>
     )
 }

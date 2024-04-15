@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { useAuthContext } from "./hooks/useAuthContext";
 import axios from "axios";
+import Footer from "./components/Footer";
 
 function App() {
 
@@ -50,7 +51,7 @@ function App() {
             <div className="col-md-6">
               <div className={i.importance===1?"bg-success bg-gradient rounded text-center text-light pb-3":(i.importance===2?"bg-primary bg-gradient  rounded text-center text-light pb-3":"bg-danger bg-gradient rounded text-center text-light pb-3")}>
                 
-                <p className="fs-2" style={{ paddingTop: 10, margin: 0 }}><i class="fa fa-arrow-right fs-3 pe-1"></i><i>{i.title}</i></p>
+                <p className="fs-2" style={{ paddingTop: 10, margin: 0 }}><i className="fa fa-arrow-right fs-3 pe-1"></i><i>{i.title}</i></p>
                 
                 <p className="lead fs-35 text-justify mt-1 mx-5"  style={{ paddingBottom: 10, margin: 0 }}>{i.description}</p>
                 
@@ -62,6 +63,7 @@ function App() {
           </div>
         )
       }
+      <Footer/>
     </div>
   );
 }

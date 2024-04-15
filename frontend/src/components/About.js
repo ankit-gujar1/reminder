@@ -1,5 +1,6 @@
 import React from 'react'
 import { Navbar } from './Navbar'
+import Footer from './Footer'
 
 export default function About() {
     return (
@@ -13,6 +14,7 @@ export default function About() {
                   fuga sed? Commodi laboriosam nulla hic amet sint.</p>
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }

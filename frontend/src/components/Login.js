@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { Navbar } from "./Navbar";
+import Footer from "./Footer";
 
 const Login=()=>{
 
@@ -69,6 +70,7 @@ const Login=()=>{
                     </form>
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }
