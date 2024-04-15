@@ -30,6 +30,9 @@ export const Navbar = () => {
                                 <Link className="nav-link" style={{ color: "#fffef7" }} aria-current="page" to={'/add'}>Add Task</Link>
                             </li>
                             <li className="nav-item">
+                                <Link className="nav-link" style={{ color: "#fffef7" }} aria-current="page" to={'/highpriority'}>Important Task</Link>
+                            </li>
+                            <li className="nav-item">
                                 <Link className="nav-link" style={{ color: "#fffef7" }} aria-current="page" to={'/about'}>About</Link>
                             </li>
                             <li className="nav-item">

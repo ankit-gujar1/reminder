@@ -6,11 +6,13 @@ import { useNavigate, useParams } from "react-router-dom";
 
 export const EditTask = () => {
 
-    const url="https://reminder-3jth.onrender.com/";
+    // const url="https://reminder-3jth.onrender.com/";
+    const url="http://localhost:8080/";
 
     const [title, setTitle] = useState();
     const [description, setDescription] = useState();
     const [importance, setImportance] = useState();
+    const [end, setEnd] = useState();
 
     const {user}=useAuthContext();
 
@@ -28,7 +30,8 @@ export const EditTask = () => {
         .then((r)=>{
             setTitle(r.data.title);
             setDescription(r.data.description);
-            setImportance(r.data.importance)
+            setImportance(r.data.importance);
+            setEnd(new Date(r.data.end).toISOString().split('T')[0]);
         })
         .catch((e)=>{
             console.log(e);
@@ -43,7 +46,7 @@ export const EditTask = () => {
             return;
         }
 
-        axios.patch(url+id, {title,description,importance}, {headers:{Authorization:'Bearer ' + user.token}})
+        axios.patch(url+id, {title,description,importance,end}, {headers:{Authorization:'Bearer ' + user.token}})
         .then((r)=>{
             console.log(r.data);
             navigate('/');
@@ -71,17 +74,22 @@ export const EditTask = () => {
                         </div>
 
                         <div className="mb-3">
-                            <label className="form-label">Set Importance</label>
-                            <input type="range" className="form-range" value={importance} onChange={(e) => setImportance(e.target.value)} min="1" max="3" defaultValue="2" step="1" />
+                            {/* <label className="form-label">Enter Password</label> */}
+                            <input type="date" className="form-control" value={end}  onChange={(e) => setEnd(e.target.value)} placeholder="Choose Deadline" />
+                        </div>
+
+                        <div className="mb-3">
+                            <label className="form-label">Priority</label>
+                            <input type="range" className="form-range" value={importance}  onChange={(e) => setImportance(e.target.value)} min="1" max="3" defaultValue="2" step="1" />
                             <div className="row">
                                 <div className="col-4">
-                                    <p className="text-success">not that important</p>
+                                    <p className="text-success">Low</p>
                                 </div>
                                 <div className="col-4 text-center">
-                                    <p className="text-primary">important</p>
+                                    <p className="text-primary">Medium</p>
                                 </div>
                                 <div className="col-4 text-end">
-                                    <p className="text-danger">very important</p>
+                                    <p className="text-danger">High</p>
                                 </div>
                             </div>
                         </div>

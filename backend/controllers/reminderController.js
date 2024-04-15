@@ -12,11 +12,24 @@ const getAllTasks=async(req,res)=>{
     }
 }
 
+const getAllHighPriorityTasks=async(req,res)=>{
+    const user_id=req.user._id;
+    try{
+        // const rr=await Task.find({user_id})
+        const r=await Task.find({user_id,importance: 3});
+        
+        res.status(200).json(r);
+    }
+    catch(e){
+        res.status(400).json({error:e.message});
+    }
+}
+
 const postTask=async(req,res)=>{
     const user_id=req.user._id;
-    const {title,importance,description}=req.body;
+    const {title,importance,description,end}=req.body;
     try{
-        const r=await Task.create({title,importance,description,user_id});
+        const r=await Task.create({title,importance,description,end,user_id});
         res.status(200).json(r);
     }
     catch(e){
@@ -50,4 +63,4 @@ const updateTask=async(req,res)=>{
     res.status(200).json(r); 
 }
 
-module.exports={getAllTasks,getOneTask,postTask,deleteTask,updateTask};
+module.exports={getAllTasks,getOneTask,postTask,deleteTask,updateTask,getAllHighPriorityTasks};

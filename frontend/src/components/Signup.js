@@ -6,7 +6,8 @@ import { Navbar } from "./Navbar";
 
 const Signup=()=>{
 
-    const url="https://reminder-3jth.onrender.com/";
+    // const url="https://reminder-3jth.onrender.com/";
+    const url="http://localhost:8080/";
 
     const [userName,setUserName]=useState();
     const [password,setPassword]=useState();

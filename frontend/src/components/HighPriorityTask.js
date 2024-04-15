@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Navbar } from "./components/Navbar";
-import { useAuthContext } from "./hooks/useAuthContext";
+import { Navbar } from "../components/Navbar";
+import { useAuthContext } from "../hooks/useAuthContext";
 import axios from "axios";
 
-function App() {
+function HighPriority() {
 
   // const url="https://reminder-3jth.onrender.com/";
   const url="http://localhost:8080/";
@@ -25,7 +25,7 @@ function App() {
       navigate('/login');
       return;
     }
-    axios.get(url, { headers: { Authorization: 'Bearer ' + user.token } })
+    axios.get(url+"highpriority/ll", { headers: { Authorization: 'Bearer ' + user.token } })
       .then((r) => {
         setTask(r.data);
       })
@@ -42,7 +42,7 @@ function App() {
       <div className="text-center mt-3">
         {user && <h1>welcome {user.userName}</h1>}
         <Link className="btn btn-dark btn-block px-5 py-2" to={'/add'}>Add Task</Link>
-        <h3 className="text-center my-3">All Tasks</h3>
+        <h3 className="text-center my-3">High Priority Tasks</h3>
       </div>
       {task &&
         task.map((i) => //key should be in outer most div of .map
@@ -54,7 +54,7 @@ function App() {
                 
                 <p className="lead fs-35 text-justify mt-1 mx-5"  style={{ paddingBottom: 10, margin: 0 }}>{i.description}</p>
                 
-                <p className="font-monospace px-3" style={{ paddingBottom: 6, margin: 0 }}>Do it before {new Date(i.end).toLocaleDateString('en-GB')}<br/> <i>{i.importance===1?"(Low Priority)":(i.importance===2?"(Medium Priority)":"(High Priority)")}</i></p>
+                <p className="font-monospace" style={{ paddingBottom: 6, margin: 0 }}>Do it before {new Date(i.end).toLocaleDateString('en-GB')} <i>{i.importance===1?"(Low Priority)":(i.importance===2?"(Medium Priority)":"(High Priority)")}</i></p>
                 <Link to={'/edit/'+i._id} className="fs-3 text-light text-end"><i className="fa fa-edit"></i></Link>
                 <Link to={'/delete/'+i._id} className="fs-3 text-light text-end ms-2"><i className="fa fa-trash"></i></Link>
               </div>
@@ -66,4 +66,4 @@ function App() {
   );
 }
 
-export default App;
+export default HighPriority;

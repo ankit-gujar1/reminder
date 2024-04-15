@@ -12,6 +12,10 @@ const reminderSchema=mongoose.Schema({
         required:true,
         type:Number
     },
+    end: {
+        required: true,
+        type: Date
+    },
     user_id:{
         required:true,
         type:String

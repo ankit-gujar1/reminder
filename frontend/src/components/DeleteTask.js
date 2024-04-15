@@ -6,7 +6,8 @@ import { useNavigate, useParams } from "react-router-dom";
 
 export const DeleteTask = () => {
 
-    const url="https://reminder-3jth.onrender.com/";
+    // const url="https://reminder-3jth.onrender.com/";
+    const url="http://localhost:8080/";
 
     const [title, setTitle] = useState();
     const [description, setDescription] = useState();

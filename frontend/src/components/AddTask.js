@@ -6,11 +6,13 @@ import { useNavigate } from "react-router-dom";
 
 export const AddTask = () => {
 
-    const url="https://reminder-3jth.onrender.com/";
+    // const url="https://reminder-3jth.onrender.com/";
+    const url="http://localhost:8080/";
 
     const [title, setTitle] = useState();
     const [description, setDescription] = useState();
     const [importance, setImportance] = useState(2);
+    const [end, setEnd] = useState();
 
     const {user}=useAuthContext();
 
@@ -31,7 +33,7 @@ export const AddTask = () => {
             return;
         }
 
-        axios.post(url, {title,description,importance}, {headers:{Authorization:'Bearer ' + user.token}})
+        axios.post(url, {title,description,importance,end}, {headers:{Authorization:'Bearer ' + user.token}})
         .then((r)=>{
             console.log(r.data);
             navigate('/');
@@ -56,6 +58,11 @@ export const AddTask = () => {
                         <div className="mb-3">
                             {/* <label className="form-label">Enter Password</label> */}
                             <textarea className="form-control" onChange={(e) => setDescription(e.target.value)} placeholder="Enter Description" />
+                        </div>
+
+                        <div className="mb-3">
+                            {/* <label className="form-label">Enter Password</label> */}
+                            <input type="date" className="form-control" onChange={(e) => setEnd(e.target.value)} placeholder="Choose Deadline" />
                         </div>
 
                         <div className="mb-3">
