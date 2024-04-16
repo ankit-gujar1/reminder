@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
     return (
-        <div class="footer navbar-fixed-bottom">
-            <footer class="my-1">
-                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <div className="footer navbar-fixed-bottom">
+            <footer className="my-1">
+                <ul className="nav justify-content-center border-bottom pb-3 mb-3">
                     <li className="nav-item">
                         <Link className="nav-link" style={{ color: "black" }} aria-current="page" to={'/'}>Home</Link>
                     </li>
@@ -19,7 +19,7 @@ export default function Footer() {
                         <Link className="nav-link" style={{ color: "black" }} aria-current="page" to={'/about'}>About</Link>
                     </li>
                 </ul>
-                <p class="text-center text-muted">Made by Ankit Gujar</p>
+                <p className="text-center text-muted">Made by Ankit Gujar</p>
             </footer>
         </div>
     )

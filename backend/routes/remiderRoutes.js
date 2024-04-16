@@ -1,14 +1,22 @@
 const express = require('express');
 const router=express.Router();
 
+const {getAllAllTask,getAllUser} = require('../controllers/adminController');
+const requireAdminAuth=require('../middlewares/requireAdminAuth');
+const requireAuth=require('../middlewares/requireAuth');
+
 const {getAllTasks,getOneTask,postTask,deleteTask,updateTask,getAllHighPriorityTasks}=require('../controllers/reminderController');
 
-router.get('/',getAllTasks);
-router.get('/:id',getOneTask);
-router.post('/',postTask);
-router.patch('/:id',updateTask);
-router.delete('/:id',deleteTask);
+//routes for users
+router.get('/',requireAuth,getAllTasks);
+router.get('/:id',requireAuth,getOneTask);
+router.post('/',requireAuth,postTask);
+router.patch('/:id',requireAuth,updateTask);
+router.delete('/:id',requireAuth,deleteTask);
+router.get('/highpriority/ll',requireAuth,getAllHighPriorityTasks);
 
-router.get('/highpriority/ll',getAllHighPriorityTasks);
+//routes for admin
+router.get('/admin/tasks',requireAdminAuth,getAllAllTask);
+router.get('/admin/users',requireAdminAuth,getAllUser);
 
 module.exports=router;

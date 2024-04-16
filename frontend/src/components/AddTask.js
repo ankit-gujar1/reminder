@@ -24,6 +24,12 @@ export const AddTask = () => {
             navigate('/login');
             return;
         }
+
+        if(user.role!=='user'){
+            // console.log(user.role)
+            navigate('/admin/home');
+            return;
+          }
     },[user])
 
     function addTask(e) {
@@ -62,7 +68,7 @@ export const AddTask = () => {
                         </div>
 
                         <div className="mb-3">
-                            {/* <label className="form-label">Enter Password</label> */}
+                            <label className="form-label">Choose Deadline</label>
                             <input type="date" className="form-control" onChange={(e) => setEnd(e.target.value)} placeholder="Choose Deadline" />
                         </div>
 

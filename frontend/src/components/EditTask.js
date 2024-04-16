@@ -75,7 +75,7 @@ export const EditTask = () => {
                         </div>
 
                         <div className="mb-3">
-                            {/* <label className="form-label">Enter Password</label> */}
+                            <label className="form-label">Choose Deadline</label>
                             <input type="date" className="form-control" value={end}  onChange={(e) => setEnd(e.target.value)} placeholder="Choose Deadline" />
                         </div>
 

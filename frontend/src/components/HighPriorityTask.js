@@ -26,6 +26,13 @@ function HighPriority() {
       navigate('/login');
       return;
     }
+
+    if(user.role!=='user'){
+      // console.log(user.role)
+      navigate('/admin/home');
+      return;
+    }
+
     axios.get(url+"highpriority/ll", { headers: { Authorization: 'Bearer ' + user.token } })
       .then((r) => {
         setTask(r.data);

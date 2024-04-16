@@ -15,9 +15,9 @@ const requireAuth=async(req,res,next)=>{
         const user=await User.findOne({_id});
         
         //if we don't add role in jwt token then we can use user.role to get role and can check if role is user or admin
-        //if(user.role!=="user") return res.status(400).json({error:"Role is not admin"}); 
+        //if(user.role!=="admin") return res.status(400).json({error:"Role is not admin"}); 
 
-        if(role!=="user") return res.status(400).json({error:"Role is not user"});
+        if(role!=="admin") return res.status(400).json({error:"Role is not admin"});
         req.user=user._id
         next();
     }

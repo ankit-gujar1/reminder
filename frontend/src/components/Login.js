@@ -32,7 +32,7 @@ const Login=()=>{
         axios.post(url+'login',{userName,password})
         .then((r)=>{
             localStorage.setItem('user',JSON.stringify(r.data));
-            dispatch({type:'LOGIN',payload:r.data});
+            dispatch({type:'LOGIN',payload:r.data}); //useAuthContext gets data from here
             navigate('/');
         })
         .catch((e)=>{

@@ -26,6 +26,13 @@ function App() {
       navigate('/login');
       return;
     }
+    
+    console.log(user.role)
+    if(user.role!='user'){
+      navigate('/admin/home');
+      return;
+    }
+
     axios.get(url, { headers: { Authorization: 'Bearer ' + user.token } })
       .then((r) => {
         setTask(r.data);
@@ -51,7 +58,7 @@ function App() {
             <div className="col-md-6">
               <div className={i.importance===1?"bg-success bg-gradient rounded text-center text-light pb-3":(i.importance===2?"bg-primary bg-gradient  rounded text-center text-light pb-3":"bg-danger bg-gradient rounded text-center text-light pb-3")}>
                 
-                <p className="fs-2" style={{ paddingTop: 10, margin: 0 }}><i className="fa fa-arrow-right fs-3 pe-1"></i><i>{i.title}</i></p>
+                <p className="fs-2 px-2" style={{ paddingTop: 10, margin: 0 }}><i className="fa fa-arrow-right fs-3 pe-1"></i><i>{i.title}</i></p>
                 
                 <p className="lead fs-35 text-justify mt-1 mx-5"  style={{ paddingBottom: 10, margin: 0 }}>{i.description}</p>
                 
