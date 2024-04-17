@@ -61,12 +61,12 @@ export const DeleteTask = () => {
                     <h1 className="text-center my-3">Are you sure?</h1>
                     {/* <form onSubmit={deleteTask}> */}
                         <div className="row justify-content-center m-2 mb-3">
-                            <div className="col-md-6">
+                            <div className="col-md-5">
                                 <div className={importance === 1 ? "bg-success bg-gradient rounded text-center text-light pb-3" : (importance === 2 ? "bg-primary bg-gradient  rounded text-center text-light pb-3" : "bg-danger bg-gradient rounded text-center text-light pb-3")}>
 
-                                    <p className="fs-2" style={{ paddingTop: 10, margin: 0 }}><i>{title}</i></p>
+                                    <p className="fs-4 px-2" style={{ paddingTop: 10, margin: 0 }}><b>{title}</b></p>
 
-                                    <p className="lead fs-35 text-justify mt-1 mx-5" style={{ paddingBottom: 10, margin: 0 }}>{description}</p>
+                                    <p className="fs-6 fw-normal text-justify mt-1 mx-5" style={{ paddingBottom: 10, margin: 0 }}>{description}</p>
 
                                     <p className="font-monospace" style={{ paddingBottom: 6, margin: 0 }}><i><u>{importance === 1 ? "Not that important" : (importance === 2 ? "Important" : "VERY IMPORTANT")}</u></i></p>
                                 </div>

@@ -55,12 +55,12 @@ function HighPriority() {
       {task &&
         task.map((i) => //key should be in outer most div of .map
           <div key={i._id} className="row justify-content-center m-2 mb-3">
-            <div className="col-md-6">
+            <div className="col-md-5">
               <div className={i.importance===1?"bg-success bg-gradient rounded text-center text-light pb-3":(i.importance===2?"bg-primary bg-gradient  rounded text-center text-light pb-3":"bg-danger bg-gradient rounded text-center text-light pb-3")}>
                 
-                <p className="fs-2" style={{ paddingTop: 10, margin: 0 }}><i className="fa fa-arrow-right fs-3 pe-1"></i><i>{i.title}</i></p>
+                <p className="fs-4 px-2" style={{ paddingTop: 10, margin: 0 }}><i className="fa fa-arrow-right fs-3 pe-1"></i><b>{i.title}</b></p>
                 
-                <p className="lead fs-35 text-justify mt-1 mx-5"  style={{ paddingBottom: 10, margin: 0 }}>{i.description}</p>
+                <p className="fs-6 fw-normal text-justify mt-1 mx-5"  style={{ paddingBottom: 10, margin: 0 }}>{i.description}</p>
                 
                 <p className="font-monospace px-3" style={{ paddingBottom: 6, margin: 0 }}>Do it before {new Date(i.end).toLocaleDateString('en-GB')}<br/> <i>{i.importance===1?"(Low Priority)":(i.importance===2?"(Medium Priority)":"(High Priority)")}</i></p>
                 <Link to={'/edit/'+i._id} className="fs-3 text-light text-end"><i className="fa fa-edit"></i></Link>
