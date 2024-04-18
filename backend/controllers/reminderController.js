@@ -27,9 +27,10 @@ const getAllHighPriorityTasks=async(req,res)=>{
 
 const postTask=async(req,res)=>{
     const user_id=req.user._id;
+    const user_name=req.user.userName;
     const {title,importance,description,end}=req.body;
     try{
-        const r=await Task.create({title,importance,description,end,user_id});
+        const r=await Task.create({title,importance,description,end,user_id,user_name});
         res.status(200).json(r);
     }
     catch(e){

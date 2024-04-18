@@ -18,7 +18,7 @@ const requireAuth=async(req,res,next)=>{
         //if(user.role!=="user") return res.status(400).json({error:"Role is not admin"}); 
 
         if(role!=="user") return res.status(400).json({error:"Role is not user"});
-        req.user=user._id
+        req.user=user
         next();
     }
     catch(e){

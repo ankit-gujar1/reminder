@@ -18,6 +18,7 @@ const Home = () => {
 
         axios.get(url + "admin/tasks", { headers: { Authorization: 'Bearer ' + user.token } })
             .then((r) => {
+                console.log("hii");
                 setTasks(r.data);
             })
             .catch((e) => {
@@ -26,6 +27,7 @@ const Home = () => {
 
         axios.get(url + "admin/users", { headers: { Authorization: 'Bearer ' + user.token } })
             .then((r) => {
+                console.log("hey");
                 setUsers(r.data);
             })
             .catch((e) => {
@@ -43,22 +45,9 @@ const Home = () => {
                         <div className="col-md-6">
                             <div className={i.importance === 1 ? "bg-success bg-gradient rounded text-center text-light pb-3" : (i.importance === 2 ? "bg-primary bg-gradient  rounded text-center text-light pb-3" : "bg-danger bg-gradient rounded text-center text-light pb-3")}>
 
-                                {users &&
-                                    users.map(u => {
-                                        if(i.user_id===u._id){
-                                            // console.log("hi")
-                                            return(
-                                                <p key={i._id} className="fs-2 px-2" style={{ paddingTop: 10, margin: 0 }}><i className="fa fa-user fs-3 pe-1"></i><i>{u.userName}</i></p>
-                                            )
-                                        }
-                                        return null;
-                                    })
-                                    
-                                }
-                                {/* setuName(n); */}
-                                
+                                <p className="fs-2 px-2" style={{ paddingTop: 10, margin: 0 }}><i className="fa fa-user fs-3 pe-1"></i><i>{i.user_name}</i></p>
 
-                                <p className="fs-2 px-2" style={{ paddingTop: 10, margin: 0 }}><i className="fa fa-arrow-right fs-3 pe-1"></i><i>{i.title}</i></p>
+                                <p className="fs-2 px-2" style={{ margin: 0 }}><i className="fa fa-arrow-right fs-3 pe-1"></i><i>{i.title}</i></p>
 
                                 <p className="lead fs-35 text-justify mt-1 mx-5" style={{ paddingBottom: 10, margin: 0 }}>{i.description}</p>
 
@@ -70,6 +59,7 @@ const Home = () => {
                         </div>
                     </div>
                 )
+                
             }
 
             {users &&
